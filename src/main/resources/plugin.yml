@@ -1,0 +1,5 @@
+name: SongBooks
+version: '${version}'
+main: dev.imlukas.songbooks.SongBooksPlugin
+api-version: '1.20'
+depend: [NoteBlockAPI]

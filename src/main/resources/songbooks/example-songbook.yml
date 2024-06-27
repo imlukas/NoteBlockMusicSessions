@@ -1,0 +1,13 @@
+item:
+  type: PAPER
+  title: "Example Songbook"
+  lore:
+    - "<gray>This is an example songbook."
+    - "<gray>It contains a few songs."
+    - "<gray>Right-click to open it."
+  model-data: 1
+
+
+songs: # folder-name/song-name
+  - example-folder/example-song
+  -
