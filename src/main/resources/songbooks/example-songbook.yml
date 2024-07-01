@@ -1,6 +1,6 @@
 item:
   type: PAPER
-  title: "Example Songbook"
+  name: "Example Songbook"
   lore:
     - "<gray>This is an example songbook."
     - "<gray>It contains a few songs."
@@ -8,6 +8,6 @@ item:
   model-data: 1
 
 
-songs: # folder-name/song-name
-  - example-folder/example-song
-  -
+songs:
+  - fife_derhohenfriedberger
+  - drum_derhohenfriedberger

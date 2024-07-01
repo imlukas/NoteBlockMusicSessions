@@ -8,6 +8,7 @@ import java.util.function.BooleanSupplier;
 public class PredicateButton extends Button {
 
     private final ItemStack originalItem;
+    private ItemStack emptyItem;
     private BooleanSupplier removeIf;
 
     public PredicateButton(ItemStack displayItem) {
@@ -15,14 +16,23 @@ public class PredicateButton extends Button {
     }
 
     public PredicateButton(ItemStack displayItem, BooleanSupplier removeIf) {
+        this(displayItem, new ItemStack(Material.AIR), removeIf);
+    }
+
+    public PredicateButton(ItemStack displayItem, ItemStack emptyItem, BooleanSupplier removeIf) {
         super(displayItem);
 
         this.originalItem = displayItem.clone();
+        this.emptyItem = emptyItem.clone();
         this.removeIf = removeIf;
     }
 
     public void removeIf(BooleanSupplier removeIf) {
         this.removeIf = removeIf;
+    }
+
+    public void setEmptyItem(ItemStack emptyItem) {
+        this.emptyItem = emptyItem;
     }
 
     public void test() {
@@ -35,7 +45,7 @@ public class PredicateButton extends Button {
             return;
         }
 
-        this.getDisplayItem().setType(Material.AIR);
+        this.setDisplayItem(emptyItem);
     }
 
     @Override

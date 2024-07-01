@@ -1,8 +1,8 @@
 package dev.imlukas.songbooks.util.commands.context.arg.external;
 
 import dev.imlukas.songbooks.SongBooksPlugin;
-import dev.imlukas.songbooks.song.ParsedSong;
-import dev.imlukas.songbooks.song.registry.ParsedSongRegistry;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.registry.ParsedSongRegistry;
 import dev.imlukas.songbooks.util.commands.context.CommandContext;
 import dev.imlukas.songbooks.util.commands.context.arg.AbstractArgument;
 

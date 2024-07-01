@@ -41,6 +41,11 @@ public class Placeholder<A> extends TextPlaceholder<Component, A> {
         }
 
         String replacementResult = replacement.apply(audience);
+
+        if (replacementResult.isEmpty()) {
+            replacementResult = "Empty";
+        }
+
         Component replacementComponent = TextUtils.color(replacementResult);
 
         return text.replaceText(TextReplacementConfig.builder().match(placeholder).replacement(replacementComponent).build());

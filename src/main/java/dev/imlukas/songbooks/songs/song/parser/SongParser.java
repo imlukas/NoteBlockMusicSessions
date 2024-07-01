@@ -1,10 +1,11 @@
-package dev.imlukas.songbooks.song.parser;
+package dev.imlukas.songbooks.songs.song.parser;
 
 import com.xxmicloxx.NoteBlockAPI.model.Song;
 import com.xxmicloxx.NoteBlockAPI.utils.NBSDecoder;
 import dev.imlukas.songbooks.SongBooksPlugin;
-import dev.imlukas.songbooks.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
 import dev.imlukas.songbooks.util.file.io.IOUtils;
+import dev.imlukas.songbooks.util.text.TextUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,14 +23,15 @@ public class SongParser {
         List<ParsedSong> parsedSongs = new ArrayList<>();
 
         IOUtils.traverseAndLoad(new File(plugin.getDataFolder(), "songs"), file -> {
+            String fileName = TextUtils.removeFileExtension(file.getName());
             Song song = NBSDecoder.parse(file);
 
             if (song == null) {
-                System.out.println("Failed to parse song: " + file.getName());
+                System.out.println("Failed to parse song: " + fileName);
                 return;
             }
 
-            ParsedSong parsedSong = new ParsedSong(file.getName(), song);
+            ParsedSong parsedSong = new ParsedSong(fileName, song);
             parsedSongs.add(parsedSong);
             System.out.println("Parsed song: " + parsedSong.getIdentifier());
         });

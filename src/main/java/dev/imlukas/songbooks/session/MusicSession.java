@@ -1,8 +1,7 @@
 package dev.imlukas.songbooks.session;
 
 import com.xxmicloxx.NoteBlockAPI.songplayer.SongPlayer;
-import dev.imlukas.songbooks.session.impl.SinglePlayerMusicSession;
-import dev.imlukas.songbooks.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
 import org.bukkit.entity.Player;
 
 public interface MusicSession {
@@ -23,6 +22,10 @@ public interface MusicSession {
     default void removeListener(Player player) {}
 
     void startSession();
+
+    void resumeSession();
+
+    void pauseSession();
 
     void endSession();
 }

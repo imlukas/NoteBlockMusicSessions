@@ -1,0 +1,15 @@
+category: drum
+
+instruments:
+  example-drum:
+    type: STICK
+    name: "<white>Example Drum"
+    lore:
+      - "<gray>Example drum"
+    model-data: 100
+  custom-drum:
+    type: STICK
+    name: "<white>Lukas' Drum"
+    lore:
+      - "<gray>A custom drum made for Lukas!"
+    model-data: 99

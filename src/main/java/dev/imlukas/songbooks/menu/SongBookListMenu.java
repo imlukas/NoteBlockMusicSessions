@@ -14,9 +14,10 @@ public class SongBookListMenu extends Menu {
 
     private final SongBookRegistry songBookRegistry;
 
-    protected SongBookListMenu(SongBooksPlugin plugin, Player viewer) {
+    public SongBookListMenu(SongBooksPlugin plugin, Player viewer) {
         super(plugin, viewer);
         this.songBookRegistry = plugin.getSongBookRegistry();
+        setup();
     }
 
     @Override

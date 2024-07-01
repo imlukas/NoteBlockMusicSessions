@@ -1,0 +1,5 @@
+display-item:
+  type: PAPER
+  name: "&6Drum"
+  lore:
+    - "<gray>Show all drum related-songs"

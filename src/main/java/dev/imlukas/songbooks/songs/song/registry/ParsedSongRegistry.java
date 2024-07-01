@@ -1,6 +1,6 @@
-package dev.imlukas.songbooks.song.registry;
+package dev.imlukas.songbooks.songs.song.registry;
 
-import dev.imlukas.songbooks.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
 
 import java.util.ArrayList;
 import java.util.HashMap;

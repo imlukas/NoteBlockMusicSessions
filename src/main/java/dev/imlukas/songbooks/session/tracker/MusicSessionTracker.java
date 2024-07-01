@@ -6,7 +6,7 @@ import dev.imlukas.songbooks.data.tracker.PlayerDataRegistry;
 import dev.imlukas.songbooks.session.MusicSession;
 import dev.imlukas.songbooks.session.impl.MultiPlayerMusicSession;
 import dev.imlukas.songbooks.session.impl.SinglePlayerMusicSession;
-import dev.imlukas.songbooks.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
 import dev.imlukas.songbooks.util.ListUtils;
 import org.bukkit.entity.Player;
 
@@ -46,6 +46,17 @@ public class MusicSessionTracker {
         }
 
         session.removeListener(player);
+    }
+
+    public boolean hasSession(Player player, ParsedSong song) {
+        MusicSession session = getSession(player);
+
+        if (session == null) {
+            return false;
+        }
+
+        ParsedSong sessionSong = session.getSong();
+        return sessionSong.getIdentifier().equals(song.getIdentifier());
     }
 
     public boolean hasSession(Player player) {
@@ -92,10 +103,11 @@ public class MusicSessionTracker {
      * @param parsedSong The song that the player is trying to play.
      */
     public void createSession(Player player, ParsedSong parsedSong) {
-        if (hasSession(player)) {
+        if (hasSession(player, parsedSong)) {
             return;
         }
 
+        removeSession(player);
         PlayerData playerData = playerDataRegistry.get(player);
 
         if (playerData == null) {
@@ -110,6 +122,7 @@ public class MusicSessionTracker {
             if (!handled) {
                 createMultiPlayerSession(player, parsedSong);
             }
+            return;
         }
 
         createSinglePlayerSession(player, parsedSong);

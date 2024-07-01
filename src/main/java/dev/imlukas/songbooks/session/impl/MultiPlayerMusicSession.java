@@ -1,6 +1,6 @@
 package dev.imlukas.songbooks.session.impl;
 
-import dev.imlukas.songbooks.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package dev.imlukas.songbooks.songbook;
 
-import dev.imlukas.songbooks.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 
@@ -14,9 +14,9 @@ public class SongBook {
     private final ItemStack displayItem;
     private final List<ParsedSong> songList = new ArrayList<>();
 
-    public SongBook(ItemStack displayItem, String identifier, List<ParsedSong> songList) {
-        this.displayItem = displayItem;
+    public SongBook(String identifier, ItemStack displayItem, List<ParsedSong> songList) {
         this.identifier = identifier;
+        this.displayItem = displayItem;
         this.songList.addAll(songList);
     }
 

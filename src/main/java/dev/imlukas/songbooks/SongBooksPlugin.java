@@ -2,10 +2,12 @@ package dev.imlukas.songbooks;
 
 import dev.imlukas.songbooks.data.tracker.PlayerDataRegistry;
 import dev.imlukas.songbooks.listeners.ConnectionListener;
+import dev.imlukas.songbooks.menu.SongBookListMenu;
 import dev.imlukas.songbooks.session.tracker.MusicSessionTracker;
-import dev.imlukas.songbooks.song.ParsedSong;
-import dev.imlukas.songbooks.song.parser.SongParser;
-import dev.imlukas.songbooks.song.registry.ParsedSongRegistry;
+import dev.imlukas.songbooks.songs.song.ParsedSong;
+import dev.imlukas.songbooks.songs.song.parser.SongParser;
+import dev.imlukas.songbooks.songs.song.registry.ParsedSongRegistry;
+import dev.imlukas.songbooks.songbook.parser.SongBookParser;
 import dev.imlukas.songbooks.songbook.registry.SongBookRegistry;
 import dev.imlukas.songbooks.util.commands.audience.bukkit.BukkitPlayerCommandAudience;
 import dev.imlukas.songbooks.util.commands.bukkit.BukkitCommandManager;
@@ -36,11 +38,18 @@ public final class SongBooksPlugin extends JavaPlugin {
 
         messages = new Messages(this);
         commandManager = new BukkitCommandManager(this, messages);
+        menuRegistry = new MenuRegistry(this);
         playerDataRegistry = new PlayerDataRegistry();
         parsedSongRegistry = new ParsedSongRegistry();
+        songBookRegistry = new SongBookRegistry();
         musicSessionTracker = new MusicSessionTracker(this);
 
         new SongParser(this).parseAll().forEach(parsedSongRegistry::register);
+        new SongBookParser(this).parseAll().forEach(songBookRegistry::register);
+
+        commandManager.newCommand("songbooks")
+                .audience(BukkitPlayerCommandAudience.class)
+                .handler((sender, context) -> new SongBookListMenu(this, sender.getPlayer()).open()).build();
 
         commandManager.newCommand("playsong")
                 .audience(BukkitPlayerCommandAudience.class)

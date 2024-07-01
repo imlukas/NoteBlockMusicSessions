@@ -1,0 +1,28 @@
+title: <gray>Songbook Songs
+layout:
+  - "b b b b b b b b b"
+  - "b . . . . . . . b"
+  - "b . . . . . . . b"
+  - "b . . . . . . . b"
+  - "b b b p c n b b b"
+
+
+items:
+  song-item:
+    type: PAPER
+    name: "<white>%song-title%"
+    lore:
+      - "<gray>Author: %song-author%"
+      - "<gray>Description: %song-description%"
+  b:
+    type: BLACK_STAINED_GLASS_PANE
+    name: " "
+  p:
+    type: ARROW
+    name: "<yellow>Previous Page"
+  c:
+    type: BARRIER
+    name: "<red>Close"
+  n:
+    type: ARROW
+    name: "<yellow>Next Page"
