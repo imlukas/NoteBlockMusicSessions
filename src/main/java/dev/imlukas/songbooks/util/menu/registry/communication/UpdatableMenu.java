@@ -1,12 +1,12 @@
 package dev.imlukas.songbooks.util.menu.registry.communication;
 
+import dev.imlukas.songbooks.SongBooksPlugin;
 import dev.imlukas.songbooks.util.menu.template.Menu;
-import net.ottersmp.ottercore.modules.CoreModule;
 import org.bukkit.entity.Player;
 
 public abstract class UpdatableMenu extends Menu {
 
-    protected UpdatableMenu(CoreModule plugin, Player viewer) {
+    protected UpdatableMenu(SongBooksPlugin plugin, Player viewer) {
         super(plugin, viewer);
     }
 

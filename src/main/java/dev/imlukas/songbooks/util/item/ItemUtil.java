@@ -64,12 +64,7 @@ public final class ItemUtil {
         if (item == null || item.getItemMeta() == null) {
             return;
         }
-
-        ItemMeta meta = item.getItemMeta();
-        if (meta.hasLore()) {
-            replacePlaceholderAPIPlaceholders(item, (Player) replacementObject);
-        }
-
+        
         if (placeholderCollection == null || placeholderCollection.isEmpty()) {
             return;
         }

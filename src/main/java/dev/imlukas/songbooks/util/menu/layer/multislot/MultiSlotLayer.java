@@ -2,7 +2,7 @@ package dev.imlukas.songbooks.util.menu.layer.multislot;
 
 import dev.imlukas.songbooks.util.menu.base.BaseMenu;
 import dev.imlukas.songbooks.util.menu.element.Renderable;
-import net.ottersmp.ottercore.util.text.placeholder.Placeholder;
+import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
 import org.bukkit.entity.Player;
 
 import java.util.Collection;

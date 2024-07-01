@@ -2,8 +2,8 @@ package dev.imlukas.songbooks.util.menu.layer.pagination;
 
 import dev.imlukas.songbooks.util.menu.base.BaseMenu;
 import dev.imlukas.songbooks.util.menu.element.Renderable;
+import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
 import lombok.Getter;
-import net.ottersmp.ottercore.util.text.placeholder.Placeholder;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

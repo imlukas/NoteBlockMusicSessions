@@ -1,5 +1,7 @@
 package dev.imlukas.songbooks.util.menu.registry;
 
+import dev.imlukas.songbooks.SongBooksPlugin;
+import dev.imlukas.songbooks.util.file.YMLBase;
 import dev.imlukas.songbooks.util.menu.base.BaseMenu;
 import dev.imlukas.songbooks.util.menu.base.ConfigurableBaseMenu;
 import dev.imlukas.songbooks.util.menu.configuration.ConfigurationApplicator;
@@ -8,9 +10,6 @@ import dev.imlukas.songbooks.util.menu.listener.MenuListener;
 import dev.imlukas.songbooks.util.menu.registry.communication.UpdatableMenuRegistry;
 import dev.imlukas.songbooks.util.menu.registry.meta.HiddenMenuTracker;
 import lombok.Getter;
-import net.ottersmp.ottercore.OtterCore;
-import net.ottersmp.ottercore.modules.CoreModule;
-import net.ottersmp.ottercore.util.file.YMLBase;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -27,18 +26,14 @@ import java.util.function.Function;
 public class MenuRegistry {
 
     private final Map<String, Function<Player, BaseMenu>> menuInitializers = new ConcurrentHashMap<>();
-    private final OtterCore plugin;
+    private final SongBooksPlugin plugin;
     private final HiddenMenuTracker hiddenMenuTracker = new HiddenMenuTracker();
     private final UpdatableMenuRegistry updatableMenuRegistry = new UpdatableMenuRegistry();
 
-    public MenuRegistry(OtterCore plugin) {
+    public MenuRegistry(SongBooksPlugin plugin) {
         this.plugin = plugin;
         MenuListener.register(this);
         load(new File(plugin.getDataFolder(), "menu"));
-    }
-
-    public void loadFor(CoreModule module) {
-        load(new File(module.getDataFolder() + File.separator + "menu"));
     }
 
     private void load(File folder) {
@@ -129,11 +124,6 @@ public class MenuRegistry {
 
     public void reload() {
         menuInitializers.clear();
-
-        for (CoreModule value : plugin.getModules().values()) {
-            loadFor(value);
-        }
-
         load(new File(plugin.getDataFolder(), "menu"));
     }
 

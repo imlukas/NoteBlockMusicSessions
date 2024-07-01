@@ -1,7 +1,7 @@
 package dev.imlukas.songbooks.util.menu.buttons;
 
 import dev.imlukas.songbooks.util.menu.element.MenuElement;
-import net.ottersmp.ottercore.util.text.placeholder.Placeholder;
+import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
