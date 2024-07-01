@@ -1,6 +1,5 @@
 package dev.imlukas.songbooks.util.commands.structure;
 
-import lombok.Getter;
 import dev.imlukas.songbooks.util.commands.audience.CommandAudience;
 import dev.imlukas.songbooks.util.commands.context.CommandArgument;
 import dev.imlukas.songbooks.util.commands.context.CommandContext;
@@ -10,6 +9,7 @@ import dev.imlukas.songbooks.util.commands.data.CommandHandler;
 import dev.imlukas.songbooks.util.commands.manager.AbstractCommandManager;
 import dev.imlukas.songbooks.util.commands.node.ArgumentCommandNode;
 import dev.imlukas.songbooks.util.commands.node.CommandNode;
+import lombok.Getter;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

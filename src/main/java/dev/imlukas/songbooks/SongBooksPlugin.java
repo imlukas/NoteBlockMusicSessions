@@ -6,11 +6,13 @@ import dev.imlukas.songbooks.session.tracker.MusicSessionTracker;
 import dev.imlukas.songbooks.song.ParsedSong;
 import dev.imlukas.songbooks.song.parser.SongParser;
 import dev.imlukas.songbooks.song.registry.ParsedSongRegistry;
+import dev.imlukas.songbooks.songbook.registry.SongBookRegistry;
 import dev.imlukas.songbooks.util.commands.audience.bukkit.BukkitPlayerCommandAudience;
 import dev.imlukas.songbooks.util.commands.bukkit.BukkitCommandManager;
 import dev.imlukas.songbooks.util.commands.context.arg.external.SongArgument;
 import dev.imlukas.songbooks.util.file.io.FileUtils;
 import dev.imlukas.songbooks.util.file.messages.Messages;
+import dev.imlukas.songbooks.util.menu.registry.MenuRegistry;
 import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -21,8 +23,10 @@ public final class SongBooksPlugin extends JavaPlugin {
 
     private Messages messages;
     private BukkitCommandManager commandManager;
+    private MenuRegistry menuRegistry;
     private PlayerDataRegistry playerDataRegistry;
     private ParsedSongRegistry parsedSongRegistry;
+    private SongBookRegistry songBookRegistry;
     private MusicSessionTracker musicSessionTracker;
 
     @Override

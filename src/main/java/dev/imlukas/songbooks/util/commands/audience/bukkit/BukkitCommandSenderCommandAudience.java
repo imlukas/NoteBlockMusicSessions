@@ -1,7 +1,7 @@
 package dev.imlukas.songbooks.util.commands.audience.bukkit;
 
-import net.kyori.adventure.text.Component;
 import dev.imlukas.songbooks.util.commands.audience.CommandAudience;
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 

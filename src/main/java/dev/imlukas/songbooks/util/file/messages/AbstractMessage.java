@@ -1,14 +1,14 @@
 package dev.imlukas.songbooks.util.file.messages;
 
+import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
 import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.text.Component;
-import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
 import org.bukkit.configuration.ConfigurationSection;
 
 public abstract class AbstractMessage implements Message {
 
-    protected Placeholder<Audience>[] placeholders;
     protected final ConfigurationSection section;
+    protected Placeholder<Audience>[] placeholders;
 
     @SafeVarargs
     protected AbstractMessage(ConfigurationSection section, Placeholder<Audience>... placeholders) {

@@ -1,11 +1,11 @@
 package dev.imlukas.songbooks.util.file.messages.provider;
 
-import net.kyori.adventure.audience.Audience;
 import dev.imlukas.songbooks.util.file.messages.Message;
 import dev.imlukas.songbooks.util.file.messages.impl.ActionbarMessage;
 import dev.imlukas.songbooks.util.file.messages.impl.ChatMessage;
 import dev.imlukas.songbooks.util.file.messages.impl.TitleMessage;
 import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
+import net.kyori.adventure.audience.Audience;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.HashMap;

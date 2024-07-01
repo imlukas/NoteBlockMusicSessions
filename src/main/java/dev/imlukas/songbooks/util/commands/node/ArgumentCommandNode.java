@@ -1,9 +1,9 @@
 package dev.imlukas.songbooks.util.commands.node;
 
-import lombok.Getter;
 import dev.imlukas.songbooks.util.commands.audience.CommandAudience;
 import dev.imlukas.songbooks.util.commands.context.CommandArgument;
 import dev.imlukas.songbooks.util.commands.data.Command;
+import lombok.Getter;
 
 /**
  * Represents a command node version of a CommandArgument.

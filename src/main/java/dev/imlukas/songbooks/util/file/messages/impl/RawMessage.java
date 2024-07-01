@@ -1,15 +1,15 @@
 package dev.imlukas.songbooks.util.file.messages.impl;
 
-import net.kyori.adventure.audience.Audience;
-import net.kyori.adventure.text.Component;
 import dev.imlukas.songbooks.util.file.messages.Message;
 import dev.imlukas.songbooks.util.text.TextUtils;
 import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
 
 public class RawMessage implements Message {
 
     private final Component message;
-    private Placeholder<Audience>[] placeholders;
+    private final Placeholder<Audience>[] placeholders;
 
     @SafeVarargs
     public RawMessage(String message, Placeholder<Audience>... placeholders) {
