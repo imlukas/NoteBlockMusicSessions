@@ -1,5 +1,8 @@
-display-item:
+item:
   type: PAPER
   name: "&6Drum"
   lore:
     - "<gray>Show all drum related-songs"
+
+songs:
+  - drum_derhohenfriedberger.nbs

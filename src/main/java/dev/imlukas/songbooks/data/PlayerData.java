@@ -22,6 +22,10 @@ public class PlayerData {
         return Bukkit.getPlayer(playerId);
     }
 
+    public void setShouldSync(boolean shouldSync) {
+        this.shouldSync = shouldSync;
+    }
+
     public boolean shouldSync() {
         return shouldSync;
     }

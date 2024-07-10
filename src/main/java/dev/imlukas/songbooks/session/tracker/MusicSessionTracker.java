@@ -2,7 +2,7 @@ package dev.imlukas.songbooks.session.tracker;
 
 import dev.imlukas.songbooks.SongBooksPlugin;
 import dev.imlukas.songbooks.data.PlayerData;
-import dev.imlukas.songbooks.data.tracker.PlayerDataRegistry;
+import dev.imlukas.songbooks.data.PlayerDataRegistry;
 import dev.imlukas.songbooks.session.MusicSession;
 import dev.imlukas.songbooks.session.impl.MultiPlayerMusicSession;
 import dev.imlukas.songbooks.session.impl.SinglePlayerMusicSession;

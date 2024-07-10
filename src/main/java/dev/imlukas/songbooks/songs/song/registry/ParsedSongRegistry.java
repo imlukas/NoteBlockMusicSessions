@@ -1,5 +1,7 @@
 package dev.imlukas.songbooks.songs.song.registry;
 
+import dev.imlukas.songbooks.songs.category.SongCategory;
+import dev.imlukas.songbooks.songs.instrument.SongInstrument;
 import dev.imlukas.songbooks.songs.song.ParsedSong;
 
 import java.util.ArrayList;
@@ -13,6 +15,27 @@ public class ParsedSongRegistry {
 
     public void register(ParsedSong song) {
         songs.put(song.getIdentifier(), song);
+    }
+
+    public List<ParsedSong> getByInstrument(SongInstrument instrument) {
+        return getByCategory(instrument.getAssociatedCategory());
+    }
+
+    public List<ParsedSong> getByCategory(SongCategory category) {
+        List<ParsedSong> songs = new ArrayList<>();
+        String categoryIdentifier = category.getIdentifier();
+
+        for (ParsedSong song : this.songs.values()) {
+            SongCategory songCategory = song.getCategory();
+            String songCategoryIdentifier = songCategory.getIdentifier();
+
+            if (!categoryIdentifier.equals(songCategoryIdentifier)) {
+                continue;
+            }
+
+            songs.add(song);
+        }
+        return songs;
     }
 
     public ParsedSong get(String identifier) {

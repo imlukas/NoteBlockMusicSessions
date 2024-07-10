@@ -2,7 +2,7 @@ package dev.imlukas.songbooks.listeners;
 
 import dev.imlukas.songbooks.SongBooksPlugin;
 import dev.imlukas.songbooks.data.PlayerData;
-import dev.imlukas.songbooks.data.tracker.PlayerDataRegistry;
+import dev.imlukas.songbooks.data.PlayerDataRegistry;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

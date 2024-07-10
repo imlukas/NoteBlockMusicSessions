@@ -3,3 +3,6 @@ display-item:
   name: "<white>Fife"
   lore:
     - "<gray>Show all fife related-songs"
+
+songs:
+  - fife_derhohenfriedberger.nbs
