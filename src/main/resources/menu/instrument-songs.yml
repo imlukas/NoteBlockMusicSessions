@@ -14,6 +14,11 @@ items:
     lore:
       - "<gray>Author: %song-author%"
       - "<gray>Description: %song-description%"
+  s:
+    type: REDSTONE
+    name: "<red>Stop playing current song"
+    lore:
+      - "<gray>Click to stop playing the current song"
   b:
     type: BLACK_STAINED_GLASS_PANE
     name: " "

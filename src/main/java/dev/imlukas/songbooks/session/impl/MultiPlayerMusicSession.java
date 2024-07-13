@@ -34,10 +34,12 @@ public class MultiPlayerMusicSession extends SinglePlayerMusicSession {
     @Override
     public void addListener(Player player) {
         listeners.add(player.getUniqueId());
+        getSongPlayer().addPlayer(player.getUniqueId());
     }
 
     @Override
     public void removeListener(Player player) {
         listeners.remove(player.getUniqueId());
+        getSongPlayer().removePlayer(player.getUniqueId());
     }
 }

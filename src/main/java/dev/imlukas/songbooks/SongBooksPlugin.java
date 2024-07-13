@@ -5,7 +5,9 @@ import dev.imlukas.songbooks.listeners.ConnectionListener;
 import dev.imlukas.songbooks.listeners.InstrumentInteractListener;
 import dev.imlukas.songbooks.menu.CategoryListMenu;
 import dev.imlukas.songbooks.menu.SongBookListMenu;
-import dev.imlukas.songbooks.session.tracker.MusicSessionTracker;
+import dev.imlukas.songbooks.session.tracker.GuestTrackingTask;
+import dev.imlukas.songbooks.session.tracker.trackers.GuestMusicSessionTracker;
+import dev.imlukas.songbooks.session.tracker.trackers.OwnMusicSessionTracker;
 import dev.imlukas.songbooks.songbook.SongBook;
 import dev.imlukas.songbooks.songs.category.SongCategory;
 import dev.imlukas.songbooks.songs.category.parser.SongCategoryParser;
@@ -43,7 +45,8 @@ public final class SongBooksPlugin extends JavaPlugin {
     private ParsedSongRegistry parsedSongRegistry;
     private GenericIdRegistry<SongBook> songBookRegistry;
 
-    private MusicSessionTracker musicSessionTracker;
+    private OwnMusicSessionTracker ownMusicSessionTracker;
+    private GuestMusicSessionTracker guestMusicSessionTracker;
 
     @Override
     public void onEnable() {
@@ -61,7 +64,11 @@ public final class SongBooksPlugin extends JavaPlugin {
         parsedSongRegistry = new ParsedSongRegistry();
         songBookRegistry = new GenericIdRegistry<>();
 
-        musicSessionTracker = new MusicSessionTracker(this);
+        ownMusicSessionTracker = new OwnMusicSessionTracker(this);
+        guestMusicSessionTracker = new GuestMusicSessionTracker(this);
+
+        GuestTrackingTask guestTrackingTask = new GuestTrackingTask(this);
+        guestTrackingTask.start();
 
         new SongCategoryParser(this).parseAll().forEach(songCategoryRegistry::register);
         new SongInstrumentParser(this).parseAll().forEach(songInstrumentRegistry::register);
@@ -112,14 +119,14 @@ public final class SongBooksPlugin extends JavaPlugin {
                         return;
                     }
 
-                    musicSessionTracker.createSession(senderPlayer, song);
+                    ownMusicSessionTracker.createSession(senderPlayer, song);
                 }).build();
 
         commandManager.newCommand("stopsong")
                 .audience(BukkitPlayerCommandAudience.class)
                 .handler((sender, context) -> {
                     Player senderPlayer = sender.getPlayer();
-                    musicSessionTracker.removeSession(senderPlayer);
+                    ownMusicSessionTracker.removeSession(senderPlayer);
                 }).build();
 
         registerListener(new ConnectionListener(this));

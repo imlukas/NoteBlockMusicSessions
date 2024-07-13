@@ -43,6 +43,7 @@ public class CategoryListMenu extends Menu {
         NextPageButton nextPageButton = new NextPageButton(applicator.getItem("n"), layer);
         PreviousPageButton previousPageButton = new PreviousPageButton(applicator.getItem("p"), layer);
 
+
         applicator.registerButton("c", this::close);
         applicator.registerElement("n", nextPageButton);
         applicator.registerElement("p", previousPageButton);

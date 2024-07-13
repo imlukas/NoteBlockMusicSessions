@@ -1,6 +1,9 @@
 package dev.imlukas.songbooks.session.impl;
 
+import com.xxmicloxx.NoteBlockAPI.songplayer.EntitySongPlayer;
 import com.xxmicloxx.NoteBlockAPI.songplayer.RadioSongPlayer;
+import com.xxmicloxx.NoteBlockAPI.songplayer.RangeSongPlayer;
+import com.xxmicloxx.NoteBlockAPI.songplayer.SongPlayer;
 import dev.imlukas.songbooks.session.MusicSession;
 import dev.imlukas.songbooks.songs.song.ParsedSong;
 import org.bukkit.Bukkit;
@@ -12,12 +15,14 @@ public class SinglePlayerMusicSession implements MusicSession {
 
     private final UUID origin;
     private final ParsedSong song;
-    private final RadioSongPlayer songPlayer;
+    private final EntitySongPlayer songPlayer;
 
     public SinglePlayerMusicSession(Player origin, ParsedSong song) {
         this.origin = origin.getUniqueId();
         this.song = song;
-        songPlayer = new RadioSongPlayer(song.getSong());
+        songPlayer = new EntitySongPlayer(song.getSong());
+        songPlayer.setEntity(origin);
+        songPlayer.setAutoDestroy(true);
     }
 
 
@@ -32,7 +37,7 @@ public class SinglePlayerMusicSession implements MusicSession {
     }
 
     @Override
-    public RadioSongPlayer getSongPlayer() {
+    public EntitySongPlayer getSongPlayer() {
         return songPlayer;
     }
 

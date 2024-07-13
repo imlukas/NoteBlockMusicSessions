@@ -2,9 +2,8 @@ package dev.imlukas.songbooks.menu.containers;
 
 import com.xxmicloxx.NoteBlockAPI.model.Song;
 import dev.imlukas.songbooks.SongBooksPlugin;
-import dev.imlukas.songbooks.session.tracker.MusicSessionTracker;
+import dev.imlukas.songbooks.session.tracker.trackers.OwnMusicSessionTracker;
 import dev.imlukas.songbooks.songs.song.ParsedSong;
-import dev.imlukas.songbooks.songs.song.registry.ParsedSongRegistry;
 import dev.imlukas.songbooks.util.menu.buttons.button.Button;
 import dev.imlukas.songbooks.util.menu.buttons.custom.NextPageButton;
 import dev.imlukas.songbooks.util.menu.buttons.custom.PreviousPageButton;
@@ -20,11 +19,11 @@ import java.util.List;
 
 public abstract class SongContainerMenu extends Menu {
 
-    private final MusicSessionTracker sessionTracker;
+    private final OwnMusicSessionTracker sessionTracker;
 
     protected SongContainerMenu(SongBooksPlugin plugin, Player viewer) {
         super(plugin, viewer);
-        this.sessionTracker = plugin.getMusicSessionTracker();
+        this.sessionTracker = plugin.getOwnMusicSessionTracker();
     }
 
     @Override
@@ -57,6 +56,7 @@ public abstract class SongContainerMenu extends Menu {
         NextPageButton nextPageButton = new NextPageButton(applicator.getItem("n"), emptyItem, layer);
         PreviousPageButton previousPageButton = new PreviousPageButton(applicator.getItem("p"), emptyItem, layer);
 
+        applicator.registerButton("s", () -> sessionTracker.removeSession(viewer));
         applicator.registerButton("c", this::close);
         applicator.registerElement("n", nextPageButton);
         applicator.registerElement("p", previousPageButton);
