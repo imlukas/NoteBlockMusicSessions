@@ -1,9 +1,6 @@
 package dev.imlukas.songbooks.session.impl;
 
 import com.xxmicloxx.NoteBlockAPI.songplayer.EntitySongPlayer;
-import com.xxmicloxx.NoteBlockAPI.songplayer.RadioSongPlayer;
-import com.xxmicloxx.NoteBlockAPI.songplayer.RangeSongPlayer;
-import com.xxmicloxx.NoteBlockAPI.songplayer.SongPlayer;
 import dev.imlukas.songbooks.session.MusicSession;
 import dev.imlukas.songbooks.songs.song.ParsedSong;
 import org.bukkit.Bukkit;

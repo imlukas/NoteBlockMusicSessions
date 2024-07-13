@@ -3,7 +3,7 @@ package dev.imlukas.songbooks.util.registry;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GenericRegistry <K, T> {
+public class GenericRegistry<K, T> {
 
     private final Map<K, T> registry = new HashMap<>();
 

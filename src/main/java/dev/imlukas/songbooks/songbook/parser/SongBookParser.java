@@ -1,9 +1,9 @@
 package dev.imlukas.songbooks.songbook.parser;
 
 import dev.imlukas.songbooks.SongBooksPlugin;
+import dev.imlukas.songbooks.songbook.SongBook;
 import dev.imlukas.songbooks.songs.song.ParsedSong;
 import dev.imlukas.songbooks.songs.song.registry.ParsedSongRegistry;
-import dev.imlukas.songbooks.songbook.SongBook;
 import dev.imlukas.songbooks.util.file.YMLBase;
 import dev.imlukas.songbooks.util.file.io.IOUtils;
 import dev.imlukas.songbooks.util.item.parser.ItemParser;

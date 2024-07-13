@@ -1,7 +1,6 @@
 package dev.imlukas.songbooks.util.commands.context.arg.external;
 
 import dev.imlukas.songbooks.SongBooksPlugin;
-import dev.imlukas.songbooks.songs.category.SongCategory;
 import dev.imlukas.songbooks.songs.instrument.SongInstrument;
 import dev.imlukas.songbooks.util.commands.context.CommandContext;
 import dev.imlukas.songbooks.util.commands.context.arg.AbstractArgument;

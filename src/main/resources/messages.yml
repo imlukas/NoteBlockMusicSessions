@@ -1,0 +1,12 @@
+command:
+  invalid: "<red>Invalid command"
+  no-permission: "<red>You do not have permission to use this command"
+  incorrect-audience: "<red>This command can only be used by players"
+  item-not-found: "<red>Item not found"
+playerdata:
+  sync:
+    disabled: "<red>Sync is disabled"
+    enabled: "<green>Sync is enabled"
+  not-found: "<red>Player not found"
+song:
+  not-found: "<red>Song not found"

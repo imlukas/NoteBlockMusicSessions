@@ -1,9 +1,7 @@
 package dev.imlukas.songbooks.menu;
 
 import dev.imlukas.songbooks.SongBooksPlugin;
-import dev.imlukas.songbooks.menu.containers.impl.BookSongsMenu;
 import dev.imlukas.songbooks.menu.containers.impl.CategorySongsMenu;
-import dev.imlukas.songbooks.songbook.SongBook;
 import dev.imlukas.songbooks.songs.category.SongCategory;
 import dev.imlukas.songbooks.util.menu.buttons.button.Button;
 import dev.imlukas.songbooks.util.menu.buttons.custom.NextPageButton;

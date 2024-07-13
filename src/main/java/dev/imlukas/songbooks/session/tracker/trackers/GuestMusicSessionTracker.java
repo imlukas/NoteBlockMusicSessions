@@ -31,6 +31,10 @@ public class GuestMusicSessionTracker implements MusicSessionTracker {
         return guestSessions.getOrDefault(player.getUniqueId(), new ArrayList<>());
     }
 
+    public void clearSessions(Player player) {
+        guestSessions.put(player.getUniqueId(), new ArrayList<>());
+    }
+
 
     public void removeSession(Player player) {
         List<MusicSession> guestSessions = this.guestSessions.remove(player.getUniqueId());
@@ -120,7 +124,7 @@ public class GuestMusicSessionTracker implements MusicSessionTracker {
         List<MusicSession> nearbySessions = getNearbySessions(player);
 
         if (nearbySessions.isEmpty()) {
-            System.out.println("[Handle Sync] No nearby sessions found.");
+            clearSessions(player);
             return;
         }
 

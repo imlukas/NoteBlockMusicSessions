@@ -25,7 +25,7 @@ public class GuestTrackingTask implements Runnable {
     }
 
     public void start() {
-        this.task = Bukkit.getScheduler().runTaskTimer(plugin, this, 3, 5);
+        this.task = Bukkit.getScheduler().runTaskTimer(plugin, this, 3, 7);
     }
 
     public void stop() {

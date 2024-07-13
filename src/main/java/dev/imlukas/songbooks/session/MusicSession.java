@@ -13,13 +13,15 @@ public interface MusicSession {
 
     SongPlayer getSongPlayer();
 
-    default void addListener(Player player) {}
+    default void addListener(Player player) {
+    }
 
     default boolean isListener(Player player) {
         return false;
     }
 
-    default void removeListener(Player player) {}
+    default void removeListener(Player player) {
+    }
 
     void startSession();
 

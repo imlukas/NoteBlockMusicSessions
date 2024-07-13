@@ -3,7 +3,6 @@ package dev.imlukas.songbooks.util.item;
 import dev.imlukas.songbooks.util.text.TextUtils;
 import dev.imlukas.songbooks.util.text.placeholder.Placeholder;
 import net.kyori.adventure.text.Component;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -64,7 +63,7 @@ public final class ItemUtil {
         if (item == null || item.getItemMeta() == null) {
             return;
         }
-        
+
         if (placeholderCollection == null || placeholderCollection.isEmpty()) {
             return;
         }
