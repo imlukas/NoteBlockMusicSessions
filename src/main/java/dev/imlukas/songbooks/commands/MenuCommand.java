@@ -11,13 +11,15 @@ public class MenuCommand {
     public MenuCommand(SongBooksPlugin plugin) {
         BukkitCommandManager commandManager = plugin.getCommandManager();
 
-        commandManager.newCommand("songcategories")
+        commandManager.newCommand("songs")
                 .audience(BukkitPlayerCommandAudience.class)
+                .argument("categories")
                 .handler((sender, context) -> new CategoryListMenu(plugin, sender.getPlayer()).open())
                 .build();
 
-        commandManager.newCommand("songbooks")
+        commandManager.newCommand("songs")
                 .audience(BukkitPlayerCommandAudience.class)
+                .argument("songbooks")
                 .handler((sender, context) -> new SongBookListMenu(plugin, sender.getPlayer()).open())
                 .build();
 

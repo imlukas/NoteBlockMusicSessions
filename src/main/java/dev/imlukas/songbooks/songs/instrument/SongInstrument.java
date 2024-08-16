@@ -5,23 +5,21 @@ import dev.imlukas.songbooks.util.registry.Identifiable;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Map;
-
 @Getter
 public class SongInstrument implements Identifiable {
 
     private final String identifier;
     private final SongCategory associatedCategory;
-    private final Map<String, ItemStack> instrumentItems;
+    private final ItemStack instrumentItem;
 
-    public SongInstrument(String identifier, SongCategory associatedCategory, Map<String, ItemStack> instrumentItems) {
+    public SongInstrument(String identifier, SongCategory associatedCategory, ItemStack instrumentItem) {
         this.identifier = identifier;
         this.associatedCategory = associatedCategory;
-        this.instrumentItems = instrumentItems;
+        this.instrumentItem = instrumentItem;
     }
 
-    public ItemStack getInstrumentItem(String instrumentId) {
-        return instrumentItems.get(instrumentId).clone();
+    public ItemStack getInstrumentItem() {
+        return instrumentItem.clone();
     }
 
 }

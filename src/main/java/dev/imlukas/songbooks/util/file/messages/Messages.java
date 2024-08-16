@@ -47,7 +47,7 @@ public class Messages extends YMLBase {
             msg = placeholder.replace(msg, audience);
         }
 
-        audience.sendMessage(msg);
+        audience.sendMessage(TextUtils.color(msg));
     }
 
     public final void send(Audience sender, String path) {

@@ -1,5 +1,6 @@
 package dev.imlukas.songbooks.session.impl;
 
+import dev.imlukas.songbooks.SongBooksPlugin;
 import dev.imlukas.songbooks.songs.song.ParsedSong;
 import org.bukkit.entity.Player;
 
@@ -11,8 +12,8 @@ public class MultiPlayerMusicSession extends SinglePlayerMusicSession {
 
     private final List<UUID> listeners = new ArrayList<>();
 
-    public MultiPlayerMusicSession(Player origin, ParsedSong song) {
-        super(origin, song);
+    public MultiPlayerMusicSession(SongBooksPlugin plugin, Player origin, ParsedSong song) {
+        super(plugin, origin, song);
     }
 
     @Override

@@ -1,15 +1,8 @@
 category: fife
 
-instruments:
-  example-fife:
-    type: STICK
-    name: "<white>Example Fife"
-    lore:
-      - "<gray>Example fife"
-    model-data: 101
-  custom-fife:
-    type: STICK
-    name: "<white>Lukas' Fife"
-    lore:
-      - "<gray>A custom fife made for Lukas!"
-    model-data: 102
+item:
+  type: STICK
+  name: "<white>Example Fife"
+  lore:
+    - "<gray>Example fife"
+  model-data: 100

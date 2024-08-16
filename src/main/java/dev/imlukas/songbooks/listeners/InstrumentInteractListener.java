@@ -4,11 +4,12 @@ import dev.imlukas.songbooks.SongBooksPlugin;
 import dev.imlukas.songbooks.menu.containers.impl.InstrumentSongsMenu;
 import dev.imlukas.songbooks.songs.instrument.SongInstrument;
 import dev.imlukas.songbooks.songs.instrument.registry.SongInstrumentRegistry;
-import dev.imlukas.songbooks.util.pdc.ItemPDCWrapper;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class InstrumentInteractListener implements Listener {
 
@@ -32,14 +33,13 @@ public class InstrumentInteractListener implements Listener {
             return;
         }
 
-        ItemPDCWrapper wrapper = new ItemPDCWrapper(plugin, item);
-        String instrumentId = wrapper.getString("instrument");
+        Material type = item.getType();
 
-        if (instrumentId == null || instrumentId.isEmpty()) {
+        if (type != Material.STICK) {
             return;
         }
 
-        SongInstrument instrument = instrumentRegistry.get(instrumentId);
+        SongInstrument instrument = instrumentRegistry.getInstrument(item);
 
         if (instrument == null) {
             return;

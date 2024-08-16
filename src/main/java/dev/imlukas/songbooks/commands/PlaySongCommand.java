@@ -16,8 +16,9 @@ public class PlaySongCommand {
         OwnMusicSessionTracker ownMusicSessionTracker = plugin.getOwnMusicSessionTracker();
         Messages messages = plugin.getMessages();
 
-        commandManager.newCommand("playsong")
+        commandManager.newCommand("songs")
                 .audience(BukkitPlayerCommandAudience.class)
+                .argument("play")
                 .argument(SongArgument.create(plugin, "song"))
                 .handler((sender, context) -> {
 

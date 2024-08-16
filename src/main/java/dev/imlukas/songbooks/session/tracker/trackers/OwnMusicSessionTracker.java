@@ -67,11 +67,6 @@ public class OwnMusicSessionTracker implements MusicSessionTracker {
      * @param parsedSong The song that the player is trying to play.
      */
     public void createSession(Player player, ParsedSong parsedSong) {
-        if (hasSession(player, parsedSong)) {
-            System.out.println("Player already has a session with the same song.");
-            return;
-        }
-
         removeSession(player);
         PlayerData playerData = playerDataRegistry.get(player);
 
@@ -99,12 +94,12 @@ public class OwnMusicSessionTracker implements MusicSessionTracker {
     }
 
     private void createMultiPlayerSession(Player player, ParsedSong parsedSong) {
-        MusicSession session = new MultiPlayerMusicSession(player, parsedSong);
+        MusicSession session = new MultiPlayerMusicSession(plugin, player, parsedSong);
         addSession(player, session);
     }
 
     private void createSinglePlayerSession(Player player, ParsedSong parsedSong) {
-        MusicSession session = new SinglePlayerMusicSession(player, parsedSong);
+        MusicSession session = new SinglePlayerMusicSession(plugin, player, parsedSong);
         addSession(player, session);
     }
 }

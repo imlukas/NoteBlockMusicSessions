@@ -14,22 +14,14 @@ public class StopSongCommand {
     public StopSongCommand(SongBooksPlugin plugin) {
         BukkitCommandManager commandManager = plugin.getCommandManager();
         OwnMusicSessionTracker ownMusicSessionTracker = plugin.getOwnMusicSessionTracker();
-        Messages messages = plugin.getMessages();
 
-        commandManager.newCommand("playsong")
+        commandManager.newCommand("songs")
                 .audience(BukkitPlayerCommandAudience.class)
-                .argument(SongArgument.create(plugin, "song"))
+                .argument("stop")
                 .handler((sender, context) -> {
 
                     Player senderPlayer = sender.getPlayer();
-                    ParsedSong song = context.getArgument("song");
-
-                    if (song == null) {
-                        messages.send(sender, "song.not-found");
-                        return;
-                    }
-
-                    ownMusicSessionTracker.createSession(senderPlayer, song);
+                    ownMusicSessionTracker.removeSession(senderPlayer);
                 }).build();
     }
 }

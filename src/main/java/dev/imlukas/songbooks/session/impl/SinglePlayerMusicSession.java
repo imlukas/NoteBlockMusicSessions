@@ -1,7 +1,9 @@
 package dev.imlukas.songbooks.session.impl;
 
 import com.xxmicloxx.NoteBlockAPI.songplayer.EntitySongPlayer;
+import dev.imlukas.songbooks.SongBooksPlugin;
 import dev.imlukas.songbooks.session.MusicSession;
+import dev.imlukas.songbooks.session.task.OriginParticleTask;
 import dev.imlukas.songbooks.songs.song.ParsedSong;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -14,12 +16,18 @@ public class SinglePlayerMusicSession implements MusicSession {
     private final ParsedSong song;
     private final EntitySongPlayer songPlayer;
 
-    public SinglePlayerMusicSession(Player origin, ParsedSong song) {
+    private final OriginParticleTask originParticleTask;
+
+    public SinglePlayerMusicSession(SongBooksPlugin plugin, Player origin, ParsedSong song) {
         this.origin = origin.getUniqueId();
         this.song = song;
         songPlayer = new EntitySongPlayer(song.getSong());
         songPlayer.setEntity(origin);
         songPlayer.setAutoDestroy(true);
+        songPlayer.setDistance(32);
+        songPlayer.setVolume((byte) 100);
+
+        originParticleTask = new OriginParticleTask(plugin, origin);
     }
 
 
@@ -40,6 +48,7 @@ public class SinglePlayerMusicSession implements MusicSession {
 
     @Override
     public void startSession() {
+        originParticleTask.resume();
         songPlayer.addPlayer(origin);
         resumeSession();
     }
@@ -47,16 +56,19 @@ public class SinglePlayerMusicSession implements MusicSession {
     @Override
     public void resumeSession() {
         songPlayer.setPlaying(true);
+        originParticleTask.resume();
     }
 
     @Override
     public void pauseSession() {
         songPlayer.setPlaying(false);
+        originParticleTask.pause();
     }
 
     @Override
     public void endSession() {
-        songPlayer.setPlaying(false);
+        songPlayer.destroy();
+        originParticleTask.cancel();
     }
 
 }

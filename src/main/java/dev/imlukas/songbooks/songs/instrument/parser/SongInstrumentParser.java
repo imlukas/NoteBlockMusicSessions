@@ -45,23 +45,9 @@ public class SongInstrumentParser {
                 return;
             }
 
-            Map<String, ItemStack> instruments = new HashMap<>();
-            ConfigurationSection instrumentsSection = config.getConfigurationSection("instruments");
+            ItemStack instrumentItem = ItemParser.from(config.getConfigurationSection("item"));
 
-            for (String instrumentId : instrumentsSection.getKeys(false)) {
-                ConfigurationSection instrument = instrumentsSection.getConfigurationSection(instrumentId);
-                ItemStack displayItem = ItemParser.from(instrument);
-
-                if (displayItem == null) {
-                    System.out.println("Failed to load song instrument: " + identifier + " (invalid item)");
-                    continue;
-                }
-
-                ItemPDCWrapper.modifyItem(plugin, displayItem, pdc -> pdc.setString("instrument", identifier));
-                instruments.put(instrumentId, displayItem);
-            }
-
-            SongInstrument songInstrument = new SongInstrument(identifier, associatedCategory, instruments);
+            SongInstrument songInstrument = new SongInstrument(identifier, associatedCategory, instrumentItem);
             songCategories.add(songInstrument);
             System.out.println("Loaded song instrument: " + identifier);
         });

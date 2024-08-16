@@ -1,12 +1,10 @@
 package dev.imlukas.songbooks;
 
-import dev.imlukas.songbooks.commands.GiveInstrumentCommand;
-import dev.imlukas.songbooks.commands.MenuCommand;
-import dev.imlukas.songbooks.commands.PlaySongCommand;
-import dev.imlukas.songbooks.commands.StopSongCommand;
+import dev.imlukas.songbooks.commands.*;
 import dev.imlukas.songbooks.data.PlayerDataRegistry;
 import dev.imlukas.songbooks.listeners.ConnectionListener;
 import dev.imlukas.songbooks.listeners.InstrumentInteractListener;
+import dev.imlukas.songbooks.listeners.InstrumentSwitchListener;
 import dev.imlukas.songbooks.session.tracker.GuestTrackingTask;
 import dev.imlukas.songbooks.session.tracker.trackers.GuestMusicSessionTracker;
 import dev.imlukas.songbooks.session.tracker.trackers.OwnMusicSessionTracker;
@@ -79,6 +77,7 @@ public final class SongBooksPlugin extends JavaPlugin {
     public void registerListeners() {
         registerListener(new ConnectionListener(this));
         registerListener(new InstrumentInteractListener(this));
+        registerListener(new InstrumentSwitchListener(this));
     }
 
     public void registerCommands() {
@@ -86,6 +85,7 @@ public final class SongBooksPlugin extends JavaPlugin {
         new MenuCommand(this);
         new PlaySongCommand(this);
         new StopSongCommand(this);
+        new SyncCommand(this);
     }
 
     @Override
