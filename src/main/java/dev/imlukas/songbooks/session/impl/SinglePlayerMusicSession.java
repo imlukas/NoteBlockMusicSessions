@@ -27,7 +27,7 @@ public class SinglePlayerMusicSession implements MusicSession {
         songPlayer.setDistance(32);
         songPlayer.setVolume((byte) 100);
 
-        originParticleTask = new OriginParticleTask(plugin, origin);
+        originParticleTask = new OriginParticleTask(plugin, origin, this);
     }
 
 

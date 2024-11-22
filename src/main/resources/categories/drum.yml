@@ -6,3 +6,8 @@ item:
 
 songs:
   - drum_derhohenfriedberger.nbs
+
+combine:
+  with: fife
+  songs:
+    - fife_drum_songname.nbs

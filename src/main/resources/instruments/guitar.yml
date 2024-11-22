@@ -1,0 +1,7 @@
+category: guitar
+item:
+  type: STICK
+  name: "<white>Example Guitar"
+  lore:
+    - "<gray>Example Guitar"
+  model-data: 102

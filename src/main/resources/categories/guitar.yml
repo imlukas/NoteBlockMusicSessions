@@ -1,0 +1,8 @@
+item:
+  type: PAPER
+  name: "&6Guitar"
+  lore:
+    - "<gray>Show all guitar related-songs"
+
+songs:
+  - drum_derhohenfriedberger.nbs

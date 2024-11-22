@@ -1,0 +1,7 @@
+category: lute
+item:
+  type: STICK
+  name: "<white>Example Lute"
+  lore:
+    - "<gray>Example Lute"
+  model-data: 103
